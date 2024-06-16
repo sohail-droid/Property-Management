@@ -1,2 +1,1 @@
-from . import property,apartments,contract,maintenance
-
+from . import maintenance_xlxs

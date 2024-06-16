@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--        <record model="ir.actions.report" id="action_maintenance_request_xlsx">-->
+<!--            <field name="name">Maintenance Request Excel Report</field>-->
+<!--            <field name="model">maintenance.request</field>-->
+<!--            <field name="report_type">xlsx</field>-->
+<!--            <field name="report_name">property_management_newupdates.maintenance_xlsx</field>-->
+<!--            <field name="report_file">property_management_newupdates.maintenance_xlsx</field>-->
+<!--            <field name="binding_model_id" ref="model_maintenance_request"/>-->
+<!--            <field name="binding_type">report</field>-->
+<!--        </record>-->
+
+
+    <report
+            id="action_maintenance_request_xlsx"
+            model="maintenance.request"
+            string="Print to XLSX"
+            report_type="xlsx"
+            name="property_management_newupdates.report_maintenance_xlsx"
+            file="property_management_newupdates.report_maintenance_xlsx"
+            attachment_use="False"
+    />
+
+
+</odoo>

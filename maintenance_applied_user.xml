@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="maintenance_user_report_service_details">
+        <t t-foreach="docs" t-as="o">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-family: 'Arial', sans-serif;">
+
+                <!-- Logo Section -->
+            <!-- Company Address Section -->
+            <div class="row">
+                <!--                    <div class="col-xs-6">-->
+                <!--                        <p>Company Name</p>-->
+                <!--                        <p>Company Address</p>-->
+                <!--                        <p>City, State, Zip Code</p>-->
+                <!--                        <p>Country</p>-->
+<!--                                    </div>-->
+            </div>
+            <div class="oe_structure"/>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div style="text-align: center;">
+                        <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">Report of Maintenance
+                            Request
+                            Details
+                        </h1>
+                    </div>
+
+                    <table class="table table-condensed" style="border: 3px solid black !important;">
+<!--                        <tr t-foreach="docs" t-as="o">-->
+                            <td width="60%">
+                                <table style="margin-bottom: 20px;"> <!-- Add margin-bottom for spacing -->
+                                    <tr>
+                                        <td colspan="3"
+                                            style="padding: 20px 0;">
+                                            <h2 style="font-size: 20px; font-weight: bold; color: #333333;">
+                                                Issue:
+                                                <span t-field="o.name"/>
+                                            </h2>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <strong>Property</strong>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>:</span>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.company_id"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <strong>Apartment Name:</strong>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>:</span>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="o.apartment_issue_id"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <strong>Created By:</strong>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>:</span>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="o.employee_id"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <strong>Responsible</strong>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>:</span>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.user_id"/>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <strong>Requested Date:</strong>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>:</span>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="o.request_date"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <strong>Schedule Date</strong>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>:</span>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.schedule_date"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <strong>Maintenance Type:</strong>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>:</span>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="o.maintenance_type"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td style="padding-left: 20px;"> <!-- Add padding-left for spacing -->
+                                <table style="margin-bottom: 20px;"> <!-- Add margin-bottom for spacing -->
+                                    <div class="col-xs-6"> <!-- Adjust column size as needed -->
+                                        <table>
+                                            <!-- Right side content here -->
+
+                                            <tr>
+                                                <td style="width: 150px;">
+                                                    <span>
+                                                        <strong>Team</strong>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>:</span>
+                                                </td>
+                                                <td>
+                                                    <span t-field="o.maintenance_team_id"/>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>
+                                                    <span>
+                                                        <strong>Equipment:</strong>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>:</span>
+                                                </td>
+
+                                                <td>
+                                                    <span t-field="o.equipment_id"/>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <span>
+                                                        <strong>For:</strong>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>:</span>
+                                                </td>
+
+                                                <td>
+                                                    <span t-field="o.maintenance_for"/>
+                                                </td>
+                                            </tr>
+
+
+                                            <!--                                                <tr>-->
+                                            <!--                                                    <td>-->
+                                            <!--                                                        <span>-->
+                                            <!--                                                            <strong>Address:</strong>-->
+                                            <!--                                                        </span>-->
+                                            <!--                                                    </td>-->
+                                            <!--                                                    <td>-->
+                                            <!--                                                        <span>:</span>-->
+                                            <!--                                                    </td>-->
+                                            <!--                                                    <td>-->
+                                            <!--                                                        <span t-field="o.apartment_address_is"/>-->
+                                            <!--                                                    </td>-->
+                                            <!--                                                </tr>-->
+
+                                            <tr>
+                                                <td>
+                                                    <span>
+                                                        <strong>Cost:</strong>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>:</span>
+                                                </td>
+                                                <td>
+                                                    <span t-field="o.cost"/>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <span>
+                                                        <strong>Renter's Fault</strong>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>:</span>
+                                                </td>
+                                                <td>
+                                                    <span t-field="o.renters_fault"/>
+                                                </td>
+                                            </tr>
+
+
+                                            <!-- Add more rows as needed -->
+                                        </table>
+                                    </div>
+
+                                </table>
+                            </td>
+<!--                        </tr>-->
+                    </table>
+
+                    <p style="font-size: 14px; color: #666666;">This report provides detail information of
+                        maintenance services
+                        utilized by the user from the apartments.
+
+                    </p> <!-- Adding font-size and color -->
+                    <p style="font-size: 14px; color: #666666;">You can contact the maintenance department for any
+                        further queries.
+                    </p> <!-- Adding font-size and color -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- After the closing </div> tag -->
+        <p style="font-size: 14px; color: #666666;">For any further inquiries, please contact:</p>
+        <p style="font-size: 14px; color: #666666; margin-bottom: 10px;">Email:
+            <a href="mailto:contact@example.com">contact@example.com</a>
+        </p>
+        <p style="font-size: 14px; color: #666666;">Phone: +1234567890</p>
+        </t>
+    </t>
+</template>
+        </odoo>

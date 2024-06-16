@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="report_service_user_details" model="ir.actions.report">
+            <field name="name">Maintenance Details Report</field>
+            <field name="model">maintenance.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">property_management_newupdates.maintenance_user_report_service_details</field>
+            <field name="report_file">property_management_newupdates.maintenance_user_report_service_details</field>
+            <field name="binding_model_id" ref="model_maintenance_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+        <menuitem id="maintenance_details_report"
+                  name="Reporting"
+                  parent="property_custom_root"
+                  sequence="4"/>
+
+        <menuitem id="msr"
+                  name="Maintenance Details Report"
+                  parent="maintenance_details_report"
+                  action="maintenance.hr_equipment_request_action"
+                  sequence="5"/>
+
+
+    </data>
+
+</odoo>
+
+        <!--    <record model="ir.actions.report" id="action_maintenance_request_xlsx">-->
+        <!--        <field name="name">Maintenance Request Excel Report</field>-->
+        <!--        <field name="model">maintenance.request</field>-->
+        <!--        <field name="report_type">xlsx</field>-->
+        <!--        <field name="report_name">property_management_newupdates.maintenance_xls</field>-->
+        <!--        <field name="report_file">property_management_newupdates.maintenance_xls</field>-->
+        <!--        <field name="binding_model_id" ref="model_maintenance_request"/>-->
+        <!--        <field name="binding_type">report</field>-->
+        <!--    </record>-->
+
+
+        <!--    <?xml version="1.0" encoding="UTF-8"?>-->
+        <!--<odoo>-->
+        <!--    <record id="report_service_user_details" model="ir.actions.report">-->
+        <!--        <field name="name">Maintenance Details Report</field>-->
+        <!--        <field name="model">maintenance.request</field>-->
+        <!--        <field name="report_type">qweb-pdf</field>-->
+        <!--        <field name="report_name">property_management_newupdates.maintenance_user_report_service_details</field>-->
+        <!--        <field name="report_file">property_management_newupdates.maintenance_user_report_service_details</field>-->
+        <!--        <field name="binding_model_id" ref="model_maintenance_request"/>-->
+        <!--        <field name="binding_type">report</field>-->
+        <!--    </record>-->
+
+        <!--    <record id="report_service_user" model="ir.actions.report">-->
+        <!--        <field name="name">Maintenance Details Excel</field>-->
+        <!--        <field name="model">maintenance.request</field>-->
+        <!--        <field name="report_type">xlsx</field>-->
+        <!--        <field name="binding_model_id" ref="model_maintenance_request"/>-->
+        <!--        <field name="binding_view_types">tree</field>-->
+        <!--        <field name="binding_type">report</field>-->
+        <!--    </record>-->
+
+        <!--    <record model="ir.actions.report" id="action_maintenance_request_xlsx">-->
+        <!--        <field name="name">Maintenance Request Excel Report</field>-->
+        <!--        <field name="model">maintenance.request</field>-->
+        <!--        <field name="report_type">xlsx</field>-->
+        <!--        <field name="report_name">property_management_newupdates.maintenance_xls</field>-->
+        <!--        <field name="report_file">property_management_newupdates.maintenance_xls</field>-->
+        <!--        <field name="binding_model_id" ref="model_maintenance_request"/>-->
+        <!--        <field name="binding_type">report</field>-->
+        <!--    </record>-->
+
