@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--Creating Kanban view -->
+    <record id="view_property_management_kanban" model="ir.ui.view">
+        <field name="name">property.kanban</field>
+        <field name="model">property.management</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="furnishing"/>
+                <field name="address"/>
+                <field name="photo" invisible="0"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <field name="photo" nolabel="1" widget="image" class="oe_right oe_avatar"/>
+                                    </li>
+
+                                    <li>
+                                        Property Name:
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        Type:
+                                        <field name="type"/>
+                                    </li>
+                                    <li>
+                                        Furnishing:
+                                        <field name="furnishing"/>
+                                    </li>
+
+                                    <li>
+                                        Address:
+                                        <field name="address"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Creating Access Rights & Tree/List View-->
+    <record id="view_property_project_tree" model="ir.ui.view">
+        <field name="name">property.management.tree</field>
+        <field name="model">property.management</field>
+        <field name="arch"
+               type="xml"> <!-- Certain attributes of a model/database table (here , ir_ui_view) will store html/xml data ... This data will be used by odoo for rendering backend displays-->
+
+            <tree string="Properties">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="furnishing"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--Creating Form View-->
+    <record id="view_property_project_form" model="ir.ui.view">
+        <field name="name">property.management.form</field>
+        <field name="model">property.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="row justify-content-between position-relative w-100 m-0 mb-2">
+                        <div class="oe_title mw-75 ps-0 pe-2">
+                            <h1 class="d-flex flex-row align-items-center">
+                                <field name="name" placeholder="xyz" required="True"
+                                       style="font-size: min(4vw, 2.6rem);"/>
+                            </h1>
+                        </div>
+
+
+                        <div class="o_employee_avatar m-0 p-0">
+                            <field name="photo" widget="image" class="oe_avatar m-0"/>
+                        </div>
+                    </div>
+
+
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_property_management" type="object"
+                                class="oe_stat_button" icon="fa-building-o">
+
+                            <div class="o_stat_info">
+                                <field name="apartments_count" class="o_stat_value"/>
+                                <span class="o_stat_text">Apartments</span>
+                                <!-- Dispalying Name as Apartments -->
+                            </div>
+                        </button>
+                    </div>
+
+                    <group>
+                        <group string="Property Details">
+                            <field name="name"/>
+                            <field name="address"/>
+                            <!--                            <field name="billable_time_target" class="oe_inline" widget="timesheet_uom_no_toggle"/>-->
+                            <field name="type"/>
+                            <field name="furnishing"/>
+                            <!--                            <field name="apartment_inside"/>-->
+                        </group>
+
+
+                        <!--   Adding images to the fields individual records -->
+                        <!--                        <group string="Property">-->
+                        <!--                            <field name="photo" widget="image"/>-->
+                        <!--                        </group>-->
+
+                        <group string="Area Measurements">
+                            <field name="sqft"/>
+                            <field name="mtrs"/>
+                        </group>  <!--                            Linking with properties-->
+
+                        <group string="Property Contact Details">
+                            <field name="property_contact"/>
+                            <field name="property_mail"/>
+<!--                            <field name="user_mail"/>-->
+                        </group>
+
+                        <group string="Property Management Personnel ">
+                            <field name="manager"/>
+                            <field name="owner"/>
+                        </group>
+
+                        <group >
+                            <field name="apartments_ids"/>
+                        </group>
+
+                    </group>
+
+                </sheet>
+
+                <!--                Creating Chatter box (logs, activity status)-->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--    Creating Actions  -->
+    <record id="action_property_project" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">property.management</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field> <!--No domain : No Filtering of records-->
+        <field name="context">{}</field>
+        <field name="help" type="html">
+
+            <!--            Adding image of Smiling face when empty-->
+            <p class="o_view_nocontent_smiling_face">
+                Fill Your Details!
+            </p>
+        </field>
+    </record>
+    <!--                             Creating Menus                       -->
+
+    <menuitem id="property_custom_root"
+              name="Property"
+              web_icon="property_management_newupdates,static/description/icon.png"
+              sequence="1"/>
+
+
+    <!-- Each menu item has to be associated with an action (or) their sub menus should have an action -->
+    <menuitem id="properties_names"
+              name="Property"
+              parent="property_custom_root"
+              action="action_property_project"
+              sequence="1"/>
+
+
+<!--    <menuitem id="menu_contract"&ndash;&gt;-->
+<!--&lt;!&ndash;              name="Contracts"&ndash;&gt;-->
+<!--&lt;!&ndash;              parent="properties_names"&ndash;&gt;-->
+<!--&lt;!&ndash;              action="action_contract"&ndash;&gt;-->
+<!--&lt;!&ndash;              sequence="5"/>&ndash;&gt;-->
+</odoo>
+
+        <!--  Menu - Submenu - Action - Access Rights -->

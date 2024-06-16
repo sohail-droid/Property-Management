@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Creating Access Rights & Tree View-->
+    <record id="view_apartment_project_tree" model="ir.ui.view">
+        <field name="name">apartments.management.tree</field>
+        <field name="model">apartments.management</field>
+        <field name="arch"
+               type="xml"> <!-- Certain attributes of a model/database table (here , ir_ui_view) will store html/xml data ... This data will be used by odoo for rendering backend displays-->
+            <tree string="Properties">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="furnishing"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Creating Form  View-->
+    <record id="view_apartments_project_form" model="ir.ui.view">
+        <field name="name">apartments.management.form</field>
+        <field name="model">apartments.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Apartments Details">
+                            <field name="prop_ap_id"/>
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="type"/>
+                            <field name="facing"/>
+                        </group>
+
+                        <group string = "Apartment">
+                            <field name = "photo" widget="image"/>
+                        </group>
+
+                        <group string="Room Rental Information">
+                            <field name="rent_type"/>
+                            <field name="rent"/>
+                            <field name="currency"/>
+                        </group>
+
+                        <group string="Floor/Room Details">
+                            <field name="floors"/>
+                            <field name="rooms"/>
+                            <field name="status"/>
+                        </group>
+
+                        <group string="BHK">
+                            <field name="bhk"/>
+                            <field name="furnishing"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!--    Creating Actions  -->
+    <record id="action_apartments_project" model="ir.actions.act_window">
+        <field name="name">Apartments</field>
+        <field name="res_model">apartments.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field> <!--No domain : No Filtering of records-->
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Fill Your Details!
+            </p>
+        </field>
+    </record>
+
+    <!--                             Creating Menus                       -->
+
+    <!-- Each menu item has to be associated with an action (or) their sub menus should have an action -->
+
+
+    <menuitem id="config_name"
+              name="Configurations"
+              parent="property_custom_root"
+              sequence="3"/>
+
+    <menuitem id="apartment_name"
+              name="Apartments"
+              parent="config_name"
+              action="action_apartments_project"
+              sequence="3"/>
+
+
+</odoo>
+
+        <!--  Menu - Submenu - Action - Access Rights -->

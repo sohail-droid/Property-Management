@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="hr_equipment_request_view_form_inherit" model="ir.ui.view">
+            <field name="name">maintenance.request.view</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="arch" type="xml">
+                <!--                <form>-->
+                <!--                    <sheet>-->
+
+                <xpath expr="//field[@name='maintenance_team_id']" position="before">
+                    <field name="apartment_issue_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='maintenance_team_id']" position="after">
+                    <field name="cost"/>
+                </xpath>
+
+                <xpath expr="//field[@name='priority']" position="before">
+                    <field name="renters_fault"/>
+                </xpath>
+
+                <notebook>
+                    <page string="Apartment Details">
+                        <field name="apartment_address_is"/>
+                    </page>
+                </notebook>
+                <!--                    </sheet>-->
+                <!--                </form>-->
+            </field>
+        </record>
+        <!--                                        -->
+
+    </data>
+
+    <menuitem id="maintenance_name"
+              name="Maintenance"
+              parent="property_custom_root"
+              sequence="2"/>
+
+    <menuitem
+            id="maintenance_request_form"
+            name="Maintenance Requests"
+            parent="maintenance_name"
+            action="maintenance.hr_equipment_request_action"
+            sequence="2"/>
+</odoo>
+

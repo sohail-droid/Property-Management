@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Creating Kanban view -->
+    <record id="view_contract_kanban" model="ir.ui.view">
+        <field name="name">contract.kanban</field>
+        <field name="model">contract.management</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="property_id"/>
+                <field name="contract_start_date"/>
+                <field name="contract_end_date"/>
+                <field name="photo" invisible="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <div t-attf-class="oe_kanban_global_click">
+                                        <!--                                        <div class="o_kanban_image">-->
+                                        <!--                                            <img alt="Avatar"-->
+                                        <!--                                                 t-att-src="kanban_image('contract.management','photo',record.id.raw_value)"/>-->
+
+                                        <!--                                        </div>-->
+                                        <div style="width: 350px;" class="o_kanban_image_fill_top">
+                                            <field name="photo" nolabel="1" widget="image" class="oe_right oe_avatar"/>
+                                        </div>
+
+                                    </div>
+
+                                    <!--                                    <li>-->
+                                    <!--                                        <field name="photo" nolabel="1" widget="image" class="oe_right oe_avatar"/>-->
+                                    <!--                                    </li>-->
+
+                                    <li>
+                                        Property Name:
+                                        <field name="property_id"/>
+                                    </li>
+                                    <li>
+                                        Start Date:
+                                        <field name="contract_start_date"/>
+                                    </li>
+                                    <li>
+                                        End Date:
+                                        <field name="contract_end_date"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!--    .                                                        iiiiiiiiiiiiiiiiiiiiiiii                                -->
+
+
+    <!-- Creating Access Rights & Tree/List View-->
+    <record id="view_contract_tree" model="ir.ui.view">
+        <field name="name">contract.tree</field>
+        <field name="model">contract.management</field>
+        <field name="arch" type="xml">
+
+            <!-- Certain attributes of a model/database table (here , ir_ui_view) will store html/xml data ... This data will be used by odoo for rendering backend displays-->
+            <!--    Text can be colored by placing after string  ->    decoration-danger= "state == 'cancel'" decoration-success= "state == 'new'" decoration-warning= "state == 'draft'" -->
+
+            <tree string="Contract Management">
+                <field name="property_id"/>
+                <field name="contract_start_date"/>
+                <field name="contract_end_date"/>
+                <field name="state"
+                       decoration-danger="state == 'cancel'"
+                       decoration-success="state == 'new'"
+                       decoration-warning="state == 'draft'"
+                       decoration-info="state == 'confirm'" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    inheriting the contract expiry email template form view-->
+
+
+    <!-- Creating Access Rights & Form View-->
+    <record id="view_contract_form" model="ir.ui.view">
+        <field name="name">contract.form</field>
+        <field name="model">contract.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button id="status_action_button_send_email" name="action_send_email" string="Send Email"
+                            type="object" class="oe_stat_button"/>
+                    <!--                    attrs="{'invisible': ['|', ('state', '!=', 'expired'), ('email_sent', '=', True)]}"-->
+                    <button id="status_action_button_draft" name="action_draft_button" string="Set To Draft"
+                            class="btn-primary" type="object" invisible="state in ('draft')"/>
+
+                    <button id="status_action_button_confirm" name="action_confirm_button" string="Confirm"
+                            class="btn-primary" type="object" invisible="state in ('cancel','running','expired')"/>
+
+                    <button id="status_action_button_cancel" name="action_cancel_button" string="Cancel"
+                            type="object" invisible="state in ('cancel','running','expired')"/>
+
+                    <button id="status_action_button_renew" name="action_renew_button" string="Renew"
+                            type="object" class="oe_stat_button" invisible="state in ('cancel','running','draft','confirm')"/>
+
+                    <!--                    <button id="status_action_button_renew" name="action_renew_button" string="Renew" type="object"-->
+                    <!--                            attrs="{'invisible': ['|', ('state', 'in', ('draft', 'running')),-->
+                    <!--                            ('contract_end_date', '&gt;=', current_date)]}"/>-->
+                    <field name="state" widget="statusbar" statusbar_visible="running,expired"/>
+
+                </header>
+
+                <sheet>
+                    <group>
+<!--                        <field name="photo" widget="image" />-->
+<!--                        <field name="id"/>-->
+                        <field name="property_id"/>
+                        <field name="contract_start_date"/>
+                        <field name="contract_end_date"/>
+                        <field name="email_from"/>
+                        <field name="email_to"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Notes" name="contract_notes">
+                            <field name="note" placeholder="Note some important details here."/>
+                        </page>
+
+                        <page string="Cost Information" name="information">
+                            <label for="cost"/>
+                            <div class="o_row mw-50" name="wage">
+                                <field name="cost" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                                <div class="mb-3" name="cost__label">/ month</div>
+                            </div>
+                        </page>
+
+                        <page string="Check List" name="check_lists_area">
+                            <group>
+                                <!--                                    <field name="label_2" string="Label 2"/>                                     -->
+                                <!--                                    <field name="check_list" string="Check List"/>                               -->
+                                <field name="check_list_ids"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--                                          Action                                                                  -->
+    <record id="action_contract" model="ir.actions.act_window">
+        <field name="name">Contract</field>
+        <field name="res_model">contract.management</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!--                                        Cron Job                                                                    -->
+
+    <record id="ir_cron_data_contract_expiry_state" model="ir.cron">
+        <field name="name">Contract Expiry: update state</field>
+        <field name="model_id" ref="model_contract_management"/>
+        <field name="state">code</field>
+        <field name="code">model.update_contract_states()</field>
+        <field name="type">ir.actions.server</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+    <record id="ir_cron_send_emails" model="ir.cron">
+        <field name="name">Send Emails</field>
+        <field name="model_id" ref="model_contract_management"/>
+        <field name="state">code</field>
+        <field name="code">model.action_send_email()</field>
+        <field name="type">ir.actions.server</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+
+    <menuitem id="menu_contract"
+              name="Contracts"
+              parent="properties_names"
+              action="action_contract"
+              sequence="18"/>
+
+</odoo>
+
+
+        <!--options="{'clickable':'1'}"-->
+        <!--confirm -> new ->  [confirm,-->
+        <!--draft -> draft ->  [-->
+        <!--cancel -> cancelled -> [-->
+        <!--active -> running -> [ -->
+
+        <!--                                invisible="state not in ['draft', 'cancel']"                                     -->
+        <!--                        The "Set To Draft" button will be visible when the state is 'draft' or 'cancel'.         -->
+        <!--                        The "Confirm" button will be visible only when the state is 'draft'.                     -->
+        <!--                        The "Cancel" button will be visible for all states except 'cancel'.                      -->
+        <!--                    action invisible  -> click on button                                                         -->
+
+
+        <!--    <record id="custom_send_mail_template" model="mail.template">-->
+        <!--        <field name="name">Renewal Reminder Email Template</field>-->
+        <!--        <field name="model_id" ref="contract_management.model_contract_management"/>-->
+        <!--        <field name="email_from">${object.property_id.email}</field>-->
+        <!--        <field name="email_to">${object.partner_id.email}</field>-->
+        <!--        <field name="subject">Renewal Reminder: ${object.property_id.name}</field>-->
+        <!--        <field name="body_html" type="html">-->
+        <!--            <![CDATA[-->
+        <!--            <div>-->
+        <!--                <p>Hello,</p>-->
+        <!--                <p>This is a reminder that the contract for property <strong>${object.property_id.name}-->
+        <!--                </strong> is expiring on <strong>${object.expiry_date}</strong>.-->
+        <!--                Please take necessary action to renew the contract.</p>-->
+        <!--            </div>-->
+        <!--        ]]>-->
+        <!--        </field>-->
+        <!--    </record>-->
+
+        <!-- renew button -->
+        <!--                    <xpath expr = "//button[@name='action_confirm_button']" position = "after">-->
+        <!--                        <button name="action_send_email" type = "object" string="Send Email"-->
+        <!--                                class = 'oe_stat_button'-->
+        <!--                            attrs="{'invisible':['|',('state', '!=', 'expired'),('contract_end_date', '&gt;=', current_date)]}"/>-->
+        <!--                    </xpath>-->
