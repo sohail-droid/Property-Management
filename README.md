@@ -1,8 +1,8 @@
-<h2><width="45"/>Excel Data Analyzer with Streamlit.
+<h2><width="45"/>Property Management Odoo.
 
 <img align='right' src="[https://storage.googleapis.com/pai-images/7c54ebeecdc34ef693697c9ed62da3e6](https://lh3.googleusercontent.com/gg/AJIvXivi1JzVxCaAOq6KjIaDQy-t5pjs9gyP9UzL6fR924H_iiTrp72PP0_glB85zGcfx15ov6V2I1Z9Di2VKSC55LIoi_vM9vIUooqoYx044yyErEagltNalCZmpXtbZ_9_YcBOMAj_21esqWATlpkicYFr3vJbWiE9PEG6dw8BqMYUphrx8RzeUQqEepHbPb_6t35_03FZfAjUJlMAwzSmUlpGJ05rdNLCkAww7YvX8Q3QKz5mK1fUu9m7Gzej8qGfNtcEX3oXOa_Z4eV60GeVMZPvDfyUnBKzS8WGkHNO2r2q216Tuy8MCv3KBGwlhUPFwobfC8M1Bb9Dd-8-_hDvIOmf).jpeg" width="1080">
 
-This Streamlit application allows users to upload an Excel file, analyze its contents, and visualize index graphs based on selected terms.
+All your property details in one app.
 ## Installation
 
 pip install streamlit
