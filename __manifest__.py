@@ -1,7 +1,7 @@
 {
     'name': 'Property Management',
     'version': '1.0',
-    'author': 'Ciranta It services ltd',
+    'author': 'Ciranta It services ltd',#Syed Mohammad Sohail
     'category': 'Productivity',
     'description': 'Property Management Software',
     'website': '',
