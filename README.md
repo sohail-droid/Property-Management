@@ -1,5 +1,6 @@
 <h2><width="45"/>Property Management Odoo.
-![Property Management Logo](https://github.com/sohail-droid/Property-Management/raw/5eeb20202372ed1a98f3126a8e0ba8cb555d2b82/icon.png)
+<img align='right' src="[https://storage.googleapis.com/pai-images/7c54ebeecdc34ef693697c9ed62da3e6.jpeg](https://github.com/sohail-droid/Property-Management/raw/5eeb20202372ed1a98f3126a8e0ba8cb555d2b82/icon.png
+)" width="1080">
 All your property details in one app.
 ## Installation
 To install the Property Management Odoo app, follow these steps:
