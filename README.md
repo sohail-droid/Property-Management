@@ -2,20 +2,27 @@
 <img align='right' src="[https://storage.googleapis.com/pai-images/7c54ebeecdc34ef693697c9ed62da3e6.jpeg](https://static.vecteezy.com/system/resources/previews/000/660/761/original/vector-elegant-property-logo.jpg)" width="1080">
 All your property details in one app.
 ## Installation
+To install the Property Management Odoo app, follow these steps:
 
-pip install streamlit
+Clone the repository: git clone <repository_url>
+Navigate to the project directory: cd property-management-odoo
+Copy the module to your Odoo addons directory.
+Restart your Odoo server.
 
 ## User Dependencies
+Ensure you have the following dependencies installed:
 
-pip install -r requirements.txt
+Odoo 14.0 or above
+Python 3.7 or above
+
 ## Usage/Examples
+To use the Property Management Odoo module:
 
-
-To run the Streamlit app, use the following command:
-
-Streamlit run <your app.py>
-
-Once the app is running, you can upload an Excel file, select terms for analysis, and view the results.
+Log in to your Odoo instance.
+Go to the Apps menu and click on 'Update App List'.
+Search for 'Property Management' and install the module.
+Navigate to the Property Management app from the main dashboard.
+Use the app to manage and analyze property details.s.
 ## License
 [MIT]
                                  Apache License
@@ -223,13 +230,49 @@ Once the app is running, you can upload an Excel file, select terms for analysis
 This project is licensed under the MIT License.
 ## Features
 
--Upload Excel files for analysis
+-Download Excel report for analysis
 -Select terms to analyze from the uploaded data
 -Visualize index graphs based on selected terms
+-select apartments or properties you want to stay
 
 ## File Structure
 
-├── app.py
-├── 4.jpg
-└── requirements.txt
+property_management_newupdates/
+└── property_management_newupdates/
+    ├── .idea/
+    ├── data/
+    │   └── mail_temp.xml
+    models/
+├── __init__.py
+├── apartments.py
+├── contract.py
+├── maintenance.py
+└── property.py
+
+report/
+├── __init__.py
+├── maintenance_applied_user.xml
+├── maintenance_xlxs.py
+├── maintenance_xlxs.xml
+└── report.xml
+
+security/
+└── ir.model.access.csv
+
+static/
+└── description/
+    ├── hira.jpg
+    ├── icon.png
+    ├── itc.jpg
+    ├── logo.jpeg
+    ├── placeholder.png
+    ├── save.jpeg
+    └── tvs.jpeg
+
+views/
+├── apartments_management.xml
+├── contract.xml
+├── maintenance.xml
+└── property_management.xml
+
 
