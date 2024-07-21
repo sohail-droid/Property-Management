@@ -237,17 +237,17 @@ This project is licensed under the MIT License.
 
 ## File Structure
 
-property_management_newupdates/
-└── property_management_newupdates/
-    ├── .idea/
-    ├── data/
-    │   └── mail_temp.xml
-      models/
-    ├── __init__.py
-    ├── apartments.py
-    ├── contract.py
-    ├── maintenance.py
-    └── property.py
+  property_management_newupdates/
+  └── property_management_newupdates/
+      ├── .idea/
+      ├── data/
+      │   └── mail_temp.xml
+        models/
+      ├── __init__.py
+      ├── apartments.py
+      ├── contract.py
+      ├── maintenance.py
+      └── property.py
     
     report/
     ├── __init__.py
