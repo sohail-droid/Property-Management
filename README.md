@@ -6,6 +6,8 @@ All your property details in one app.
 To install the Property Management Odoo app, follow these steps:
 
 Clone the repository: git clone <repository_url>
+
+
 Navigate to the project directory: cd property-management-odoo
 Copy the module to your Odoo addons directory.
 Restart your Odoo server.
