@@ -1,5 +1,5 @@
 <h2><width="45"/>Property Management Odoo.
-
+  <img align='right' src="https://static.vecteezy.com/system/resources/previews/000/660/761/original/vector-elegant-property-logo.jpg" width="1080">
 All your property details in one app.
 ## Installation
 To install the Property Management Odoo app, follow these steps:
