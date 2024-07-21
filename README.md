@@ -1,5 +1,5 @@
 <h2><width="45"/>Property Management Odoo.
-<img align='right' src="[https://storage.googleapis.com/pai-images/7c54ebeecdc34ef693697c9ed62da3e6.jpeg](https://static.vecteezy.com/system/resources/previews/000/660/761/original/vector-elegant-property-logo.jpg)" width="1080">
+
 All your property details in one app.
 ## Installation
 To install the Property Management Odoo app, follow these steps:
@@ -230,10 +230,10 @@ Use the app to manage and analyze property details.s.
 This project is licensed under the MIT License.
 ## Features
 
--Download Excel report for analysis
--Select terms to analyze from the uploaded data
--Visualize index graphs based on selected terms
--select apartments or properties you want to stay
+1. Download Excel report for analysis
+2. Select terms to analyze from the uploaded data
+3. Visualize index graphs based on selected terms
+4. select apartments or properties you want to stay
 
 ## File Structure
 
@@ -242,37 +242,37 @@ property_management_newupdates/
     ├── .idea/
     ├── data/
     │   └── mail_temp.xml
-    models/
-├── __init__.py
-├── apartments.py
-├── contract.py
-├── maintenance.py
-└── property.py
-
-report/
-├── __init__.py
-├── maintenance_applied_user.xml
-├── maintenance_xlxs.py
-├── maintenance_xlxs.xml
-└── report.xml
-
-security/
-└── ir.model.access.csv
-
-static/
-└── description/
-    ├── hira.jpg
-    ├── icon.png
-    ├── itc.jpg
-    ├── logo.jpeg
-    ├── placeholder.png
-    ├── save.jpeg
-    └── tvs.jpeg
-
-views/
-├── apartments_management.xml
-├── contract.xml
-├── maintenance.xml
-└── property_management.xml
+      models/
+    ├── __init__.py
+    ├── apartments.py
+    ├── contract.py
+    ├── maintenance.py
+    └── property.py
+    
+    report/
+    ├── __init__.py
+    ├── maintenance_applied_user.xml
+    ├── maintenance_xlxs.py
+    ├── maintenance_xlxs.xml
+    └── report.xml
+    
+    security/
+    └── ir.model.access.csv
+    
+    static/
+    └── description/
+        ├── hira.jpg
+        ├── icon.png
+        ├── itc.jpg
+        ├── logo.jpeg
+        ├── placeholder.png
+        ├── save.jpeg
+        └── tvs.jpeg
+    
+    views/
+    ├── apartments_management.xml
+    ├── contract.xml
+    ├── maintenance.xml
+    └── property_management.xml
 
 
