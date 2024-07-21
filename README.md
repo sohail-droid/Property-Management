@@ -230,7 +230,7 @@ Use the app to manage and analyze property details.s.
 
 This project is licensed under the MIT License.
 ## Features
-
+""New Updates on the way,As a student dont have enough time to work upon it hope it will become the bst module for property management"""
 1. Download Excel report for analysis
 2. Select terms to analyze from the uploaded data
 3. Visualize index graphs based on selected terms
